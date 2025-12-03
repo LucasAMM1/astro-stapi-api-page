@@ -1,0 +1,91 @@
+---
+import "../styles/global.css";
+const {contacto} = Astro.props;
+const {nosotros} = Astro.props;
+---
+
+<footer class="bg-gray-800 text-white">
+  <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <div
+      class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+    >
+      <div class="flex-shrink-0 text-center md:text-left">
+        <a href="#" class="text-2xl font-bold tracking-tight block mb-1">
+          <span class="text-red-600">RET</span>NEWS
+        </a>
+        <p class="text-xs text-gray-400">
+          &copy; 2025 RET NEWS. Todos los derechos reservados.
+        </p>
+      </div>
+
+      <div
+        class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8"
+      >
+        <div class="flex space-x-4">
+          <a
+            href="/contacto"
+            class="px-4 py-2 text-sm font-medium text-white border border-red-600 rounded-md hover:bg-red-600 transition duration-150"
+          >
+            Contacto
+          </a>
+          <a
+            href="/nosotros"
+            class="px-4 py-2 text-sm font-medium text-white border border-red-600 rounded-md hover:bg-red-600 transition duration-150"
+          >
+            Sobre Nosotros
+          </a>
+        </div>
+
+        <div class="flex space-x-5">
+          <a
+            href="#"
+            class="text-gray-400 hover:text-red-600 transition duration-150"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M18.901 1.153h3.682L15.99 10.42 24 22.846h-7.391l-5.637-8.718-6.19 8.718H.51l7.53-11.168L0 1.153h7.625l4.893 6.94L18.901 1.153Zm-1.405 2.112L6.152 20.89h2.382l11.34-16.597h-2.378Z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="text-gray-400 hover:text-red-600 transition duration-150"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h3.295l-.52 3.518h-2.775v6.987C18.343 21.128 22 16.991 22 12Z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="text-gray-400 hover:text-red-600 transition duration-150"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.315 2c2.43 0 2.7.01 3.68.058l3.46.16c.92.04 1.77.21 2.42.48.65.28 1.2.68 1.63 1.12.44.43.84.98 1.12 1.63.27.65.44 1.5.48 2.42l.16 3.46c.04.98.058 1.25.058 3.68s-.01 2.7-.058 3.68l-.16 3.46c-.04.92-.21 1.77-.48 2.42-.28.65-.68 1.2-1.12 1.63-.43.44-.98.84-1.63 1.12-.65.27-1.5.44-2.42.48l-3.46.16c-.98.04-1.25.058-3.68.058s-2.7-.01-3.68-.058l-3.46-.16c-.92-.04-1.77-.21-2.42-.48-.65-.28-1.2-.68-1.63-1.12-.44-.43-.84-.98-1.12-1.63-.27-.65-.44-1.5-.48-2.42l-.16-3.46c-.04-.98-.058-1.25-.058-3.68s.01-2.7.058-3.68l.16-3.46c.04-.92.21-1.77.48-2.42.28-.65.68-1.2 1.12-1.63.43-.44.98-.84 1.63-1.12.65-.27 1.5-.44 2.42-.48l3.46-.16c.98-.04 1.25-.058 3.68-.058ZM12 7.39c-2.55 0-4.61 2.06-4.61 4.61s2.06 4.61 4.61 4.61 4.61-2.06 4.61-4.61-2.06-4.61-4.61-4.61ZM20 6.64c0-.52-.42-.94-.94-.94s-.94.42-.94.94.42.94.94.94.94-.42.94-.94ZM12 9.21c1.54 0 2.79 1.25 2.79 2.79s-1.25 2.79-2.79 2.79-2.79-1.25-2.79-2.79 1.25-2.79 2.79-2.79Z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
