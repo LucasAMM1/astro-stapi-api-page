@@ -1,15 +1,13 @@
 ---
-// Importaciones
+const { title = "En Uruguay le ponen la lapida al futuro de Brayan Cortes" } =
+  Astro.props;
 import "../styles/global.css";
 import FooterComponents from "../components/FooterComponents.astro";
 import HeaderComponents from "../components/HeaderComponents.astro";
 import { fetchFromAPI } from "../lib/strapi";
 
-// 1. IMPORTAR EL COMPONENTE DE IMAGEN
 import { Image } from "astro:assets";
 
-// --- CAMBIO DE IMAGEN ---
-// Asegúrate de tener esta imagen en tu carpeta o ajusta el nombre
 import brayanImg from "../images/brayancortes.png";
 
 interface NoticiaDeportiva {
@@ -39,6 +37,7 @@ const noticiaDestacada: NoticiaDeportiva | undefined = noticias.find(
 );
 ---
 
+<title>{title}</title>
 <div class="min-h-screen bg-gray-50">
   <HeaderComponents />
 

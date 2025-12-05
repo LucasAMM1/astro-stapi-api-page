@@ -1,13 +1,13 @@
 ---
-// Importaciones
+const {
+  title = "Barcelona le remonto al Atletico y presiona al Madrid por liderato de LaLiga: cules toman dist",
+} = Astro.props;
 import "../styles/global.css";
 import FooterComponents from "../components/FooterComponents.astro";
 import HeaderComponents from "../components/HeaderComponents.astro";
 import { fetchFromAPI } from "../lib/strapi";
 
-// 1. IMPORTAR EL COMPONENTE DE IMAGEN
 import { Image } from "astro:assets";
-// Asegúrate de que esta imagen existe en tu carpeta de imágenes
 import barcelonaImg from "../images/barcelona-atm.png";
 
 interface NoticiaDeportiva {
@@ -27,7 +27,6 @@ const noticias: NoticiaDeportiva[] = Array.isArray(noticiasData)
   ? noticiasData
   : [];
 
-// 2. TÍTULO SIN TILDES
 const tituloBuscado =
   "Barcelona le remonto al Atletico y presiona al Madrid por liderato de LaLiga: cules toman distancia";
 
@@ -36,6 +35,7 @@ const noticiaDestacada: NoticiaDeportiva | undefined = noticias.find(
 );
 ---
 
+<title>{title}</title>
 <div class="min-h-screen bg-gray-50">
   <HeaderComponents />
 

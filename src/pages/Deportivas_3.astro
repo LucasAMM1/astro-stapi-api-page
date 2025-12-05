@@ -1,4 +1,5 @@
 ---
+const { title = "Manchester City vence a Fulham" } = Astro.props;
 import "../styles/global.css";
 import FooterComponents from "../components/FooterComponents.astro";
 import HeaderComponents from "../components/HeaderComponents.astro";
@@ -32,6 +33,8 @@ const noticiaDestacada: NoticiaDeportiva | undefined = noticias.find(
   (noticia) => noticia.titulo === tituloBuscado
 );
 ---
+
+<title>{title}</title>
 
 <div class="min-h-screen bg-gray-50">
   <HeaderComponents />

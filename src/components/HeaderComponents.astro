@@ -1,8 +1,8 @@
 ---
 import "../styles/global.css";
-const {index} = Astro.props;
-const {contacto} = Astro.props;
-const {nosotros} = Astro.props;
+const { index } = Astro.props;
+const { contacto } = Astro.props;
+const { nosotros } = Astro.props;
 ---
 
 <header class="bg-white border-b border-gray-200">
@@ -11,8 +11,8 @@ const {nosotros} = Astro.props;
   >
     <div class="flex-shrink-0">
       <a href="/" class="text-3xl font-bold tracking-tight">
-        <span class="text-red-600">RET</span><span class="text-black">NEWS</span
-        >
+        <span class="text-red-600">EL</span>
+        <span class="text-black">CRONISTA</span>
       </a>
     </div>
 
@@ -20,7 +20,9 @@ const {nosotros} = Astro.props;
       <ul class="flex space-x-6 items-center">
         <li><a href="/" class="hover:text-red-600">INICIO</a></li>
         <li><a href="/" class="hover:text-red-600">NOTICIAS</a></li>
-        <li><a href="/nosotros" class="hover:text-red-600">SOBRE NOSOTROS</a></li>
+        <li>
+          <a href="/nosotros" class="hover:text-red-600">SOBRE NOSOTROS</a>
+        </li>
         <li><a href="/contacto" class="hover:text-red-600">CONTACTO</a></li>
       </ul>
     </nav>

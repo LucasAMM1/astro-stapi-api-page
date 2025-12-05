@@ -1,6 +1,9 @@
 ---
-import "../styles/global.css";
+const {
+  title = "Tras valioso triunfo de La Roja: asi quedo la tabla de Liga de Naciones Femenina rumbo a Brasil 2027",
+} = Astro.props;
 
+import "../styles/global.css";
 import FooterComponents from "../components/FooterComponents.astro";
 
 import HeaderComponents from "../components/HeaderComponents.astro";
@@ -40,6 +43,8 @@ const noticiaDestacada: NoticiaDeportiva | undefined = noticias.find(
   (noticia) => noticia.titulo === tituloBuscado
 );
 ---
+
+<title>{title}</title>
 
 <div class="min-h-screen bg-gray-50">
   <HeaderComponents />
