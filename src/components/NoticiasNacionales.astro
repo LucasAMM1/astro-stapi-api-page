@@ -30,7 +30,7 @@ const noticias: Noticia[] = await fetchFromApi("noticianacionals");
       </div>
     </div>
 
-    <!-- Noticias destacadas -->
+    <!-- destacadas -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
       {noticias.slice(0, 4).map((noticia, index) => (
           <a href={`/noticiasnacional/${noticia.documentId}`} class={`col-span-1 ${index === 0 ? "md:col-span-2 row-span-1 md:row-span-2 h-96" : index === 1 ? "md:col-span-2 h-48 md:h-auto" : "md:col-span-1 h-48"} flex items-end p-4 relative overflow-hidden group`}>
@@ -54,7 +54,7 @@ const noticias: Noticia[] = await fetchFromApi("noticianacionals");
       ))}
     </div>
 
-    <!-- Noticias inferiores -->
+    <!-- inferiores -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       {noticias.slice(4, 8).map((noticia) => (
           <a href={`/noticiasnacional/${noticia.documentId}`} class="bg-white p-2 shadow-sm hover:shadow-md transition duration-300 block">

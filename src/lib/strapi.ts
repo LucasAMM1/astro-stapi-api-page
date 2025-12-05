@@ -5,11 +5,7 @@ const strapiURL = import.meta.env.STRAPI_API_URL || 'http://localhost:1337/api';
 export const STRAPI_BASE_URL = strapiURL.replace('/api', '');
 export const STRAPI_URL = strapiURL;
 
-/**
- * Función para obtener datos desde la API de Strapi.
- * @param slug Ruta de la colección o endpoint (por ejemplo: "noticianacionals")
- * @returns Un array de datos o un array vacío si ocurre un error
- */
+
 export async function fetchFromApi(slug: string) {
     try {
         const response = await fetch(`${STRAPI_URL}/${slug}?populate=*`);
