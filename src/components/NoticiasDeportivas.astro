@@ -1,5 +1,13 @@
 ---
 import "../styles/global.css";
+import Image from "astro/components/Image.astro";
+
+import ChileFemeninoImg from "../images/chile-femenino.png";
+import BarcelonaImg from "../images/barcelona-atm.png";
+import CortesImg from "../images/brayancortes.png";
+import ManCityImg from "../images/mancity.png";
+
+const { Deportivas_1, Deportivas_2, Deportivas_3, Deportivas_4 } = Astro.props;
 ---
 
 <div class="container mx-auto px-4 py-8 max-w-7xl">
@@ -14,61 +22,93 @@ import "../styles/global.css";
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
     <div class="flex flex-col">
-      <div class="bg-gray-600 h-40 w-full mb-3"></div>
+      <a href="Deportivas_1" class="group block">
+        <Image
+          src={ChileFemeninoImg}
+          alt="Noticia sobre Chile Femenino"
+          class="h-40 w-full object-cover mb-3 rounded"
+        />
 
-      <p class="text-xs text-red-600 font-medium mb-1">
-        By David Hall <span class="text-gray-500">· December 09, 2020</span>
-      </p>
+        <p class="text-xs text-red-600 font-medium mb-1">
+          Javier Zamorano <span class="text-gray-500"
+            >- 03 diciembre de 2025</span
+          >
+        </p>
 
-      <h3
-        class="text-base font-semibold text-gray-800 leading-snug hover:text-red-600 cursor-pointer"
-      >
-        Titular Deportivo Uno: Texto base para la primera noticia.
-      </h3>
+        <h3
+          class="text-base font-semibold text-gray-800 leading-snug group-hover:text-red-600"
+        >
+          Tras valioso triunfo de La Roja: asi quedo la tabla de Liga de
+          Naciones Femenina rumbo a Brasil 2027
+        </h3>
+      </a>
     </div>
 
     <div class="flex flex-col">
-      <div class="bg-gray-600 h-40 w-full mb-3"></div>
+      <a href="Deportivas_2" class="group block">
+        <Image
+          src={BarcelonaImg}
+          alt="Noticia sobre Barcelona"
+          class="h-40 w-full object-cover mb-3 rounded"
+        />
 
-      <p class="text-xs text-red-600 font-medium mb-1">
-        By David Hall <span class="text-gray-500">· December 09, 2020</span>
-      </p>
+        <p class="text-xs text-red-600 font-medium mb-1">
+          Italo Sanchez Sanhueza <span class="text-gray-500"
+            >- 02 diciembre de 2025</span
+          >
+        </p>
 
-      <h3
-        class="text-base font-semibold text-gray-800 leading-snug hover:text-red-600 cursor-pointer"
-      >
-        Titular Deportivo Dos: ¿Continuará la liga a pesar de la situación
-        actual?
-      </h3>
+        <h3
+          class="text-base font-semibold text-gray-800 leading-snug group-hover:text-red-600"
+        >
+          Barcelona le remonto al Atletico y presiona al Madrid por liderato de
+          LaLiga: cules toman distancia
+        </h3>
+      </a>
     </div>
 
     <div class="flex flex-col">
-      <div class="bg-gray-600 h-40 w-full mb-3"></div>
+      <a href="Deportivas_4" class="group block">
+        <Image
+          src={CortesImg}
+          alt="Noticia sobre Brayan Cortés"
+          class="h-40 w-full object-cover mb-3 rounded"
+        />
 
-      <p class="text-xs text-red-600 font-medium mb-1">
-        By David Hall <span class="text-gray-500">· December 09, 2020</span>
-      </p>
+        <p class="text-xs text-red-600 font-medium mb-1">
+          Italo Sanchez Sanhueza <span class="text-gray-500"
+            >- 02 diciembre de 2025</span
+          >
+        </p>
 
-      <h3
-        class="text-base font-semibold text-gray-800 leading-snug hover:text-red-600 cursor-pointer"
-      >
-        Titular Deportivo Tres: Noticias del equipo de fútbol americano.
-      </h3>
+        <h3
+          class="text-base font-semibold text-gray-800 leading-snug group-hover:text-red-600"
+        >
+          Manchester City vence a Fulham en frenetico duelo de 9 goles: Haaland
+          sello historica marca en Premier
+        </h3>
+      </a>
     </div>
 
     <div class="flex flex-col">
-      <div class="bg-gray-600 h-40 w-full mb-3"></div>
+      <a href="Deportivas_3" class="group block">
+        <Image
+          src={ManCityImg}
+          alt="Noticia sobre Manchester City"
+          class="h-40 w-full object-cover mb-3 rounded"
+        />
 
-      <p class="text-xs text-red-600 font-medium mb-1">
-        By David Hall <span class="text-gray-500">· December 09, 2020</span>
-      </p>
+        <p class="text-xs text-red-600 font-medium mb-1">
+          Jaime Zavala <span class="text-gray-500">- 02 diciembre de 2025</span>
+        </p>
 
-      <h3
-        class="text-base font-semibold text-gray-800 leading-snug hover:text-red-600 cursor-pointer"
-      >
-        Titular Deportivo Cuatro: Atletas compiten en campeonato mundial de
-        natación.
-      </h3>
+        <h3
+          class="text-base font-semibold text-gray-800 leading-snug group-hover:text-red-600"
+        >
+          En Uruguay le ponen la lapida al futuro de Brayan Cortes en el
+          "manya": "Nunca pudo afianzarse"
+        </h3>
+      </a>
     </div>
   </div>
 </div>
