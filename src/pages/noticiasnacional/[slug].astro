@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { fetchFromApi, STRAPI_BASE_URL } from "../../lib/strapi";
+import FooterComponents from "../../components/FooterComponents.astro";
+import HeaderComponents from "../../components/HeaderComponents.astro";
+
+interface Noticia {
+    documentId: string;
+    titulo: string;
+    descripcion: string;
+    fecha: string;
+    autor: string;
+    imagen?: {
+        url: string;
+        formats?: {
+            large?: {
+                url: string;
+            };
+        };
+    };
+}
+
+export async function getStaticPaths() {
+    const noticias: Noticia[] = await fetchFromApi("noticianacionals");
+
+    return noticias.map((noticia) => ({
+        params: { slug: noticia.documentId },
+        props: { noticia },
+    }));
+}
+
+const { noticia }: { noticia: Noticia } = Astro.props;
+---
+
+<Layout>
+    <HeaderComponents />
+
+    <div class="min-h-screen bg-gray-50">
+        <div class="container mx-auto px-4 py-10 max-w-4xl">
+            <div class="mb-8">
+                <p class="text-sm text-red-600 font-medium">
+                    {noticia.autor} <span class="text-gray-500">- {noticia.fecha}</span>
+                </p>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">
+                    {noticia.titulo}
+                </h1>
+            </div>
+
+            {noticia.imagen?.formats?.large?.url && (
+                    <div class="mb-8 rounded-xl overflow-hidden shadow-lg">
+                        <img
+                                src={`${STRAPI_BASE_URL}${noticia.imagen.formats.large.url}`}
+                                alt={noticia.titulo}
+                                class="w-full h-auto object-cover"
+                        />
+                    </div>
+            )}
+
+            <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p>{noticia.descripcion}</p>
+            </div>
+
+            <div class="mt-10">
+                <a href="/noticiasnacional" class="text-blue-600 hover:underline text-sm">← Volver a noticias</a>
+            </div>
+        </div>
+    </div>
+
+    <FooterComponents />
+</Layout>
