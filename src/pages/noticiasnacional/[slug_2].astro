@@ -1,0 +1,101 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { fetchFromAPI, STRAPI_BASE_URL } from "../../lib/strapi";
+import FooterComponents from "../../components/FooterComponents.astro";
+import HeaderComponents from "../../components/HeaderComponents.astro";
+
+interface ImagenFormat {
+  url: string;
+}
+
+interface ImagenData {
+  url: string;
+  formats?: {
+    large?: ImagenFormat;
+    medium?: ImagenFormat;
+    small?: ImagenFormat;
+    thumbnail?: ImagenFormat;
+  };
+}
+
+interface Noticia {
+  documentId: string;
+  titulo: string;
+  descripcion: string;
+  fecha: string;
+  autor: string;
+  imagen: ImagenData[]; // <--- Importante: Es un Array
+}
+
+export async function getStaticPaths() {
+  const response = await fetchFromAPI("noticianacionals");
+  const noticias: Noticia[] = response || [];
+
+  return noticias.map((noticia) => ({
+    params: { slug_2: noticia.documentId },
+    props: { noticia },
+  }));
+}
+
+const { noticia }: { noticia: Noticia } = Astro.props;
+
+const getImageUrl = (imagenes: Noticia["imagen"]) => {
+  if (!imagenes || !Array.isArray(imagenes) || imagenes.length === 0) {
+    return null;
+  }
+
+  const imagenPrincipal = imagenes[0];
+
+  const url =
+    imagenPrincipal.formats?.large?.url ||
+    imagenPrincipal.formats?.medium?.url ||
+    imagenPrincipal.formats?.small?.url ||
+    imagenPrincipal.url;
+
+  if (!url) return null;
+
+  if (url.startsWith("http")) return url;
+  return `${STRAPI_BASE_URL}${url}`;
+};
+
+const imgUrl = getImageUrl(noticia.imagen);
+---
+
+<Layout>
+  <HeaderComponents />
+
+  <div class="min-h-screen bg-gray-50">
+    <div class="container mx-auto px-4 py-10 max-w-4xl">
+      <div class="mb-8">
+        <p class="text-sm text-red-600 font-medium">
+          {noticia.autor}
+          <span class="text-gray-500">- {noticia.fecha}</span>
+        </p>
+        <h1
+          class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6"
+        >
+          {noticia.titulo}
+        </h1>
+      </div>
+
+      {
+        imgUrl && (
+          <div class="mb-8 rounded-xl overflow-hidden shadow-lg">
+            <img
+              src={imgUrl}
+              alt={noticia.titulo}
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        )
+      }
+
+      <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+        {}
+        <p class="whitespace-pre-line">{noticia.descripcion}</p>
+      </div>
+    </div>
+  </div>
+
+  <FooterComponents />
+</Layout>
