@@ -28,11 +28,12 @@ interface Noticia {
 }
 
 export async function getStaticPaths() {
-  const response = await fetchFromAPI("noticianacionals");
+  const response = await fetchFromAPI("noticiarecientes");
   const noticias: Noticia[] = response || [];
 
   return noticias.map((noticia) => ({
-    params: { slug_2: noticia.documentId },
+    // CAMBIO CRÍTICO: Usamos documentId porque slug no existe en tu API
+    params: { slug_3: noticia.documentId },
     props: { noticia },
   }));
 }
@@ -91,7 +92,6 @@ const imgUrl = getImageUrl(noticia.imagen);
       }
 
       <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-        {}
         <p class="whitespace-pre-line">{noticia.descripcion}</p>
       </div>
     </div>
