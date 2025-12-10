@@ -19,3 +19,5 @@ Marcelo Torres
 
 Alexi Vargas
 - Frontend: Programación y despliegue de Noticias Recientes.
+
+Archivos ENV: https://drive.google.com/drive/folders/1Pr1Ud2NWwdCh9ISLFn0TXIo3mP_DwfIT?usp=drive_link
